@@ -6,10 +6,23 @@ $client = new Client(
 );
 
 
-$response = $client->request(
-  'GET',
+$response = $client->get(
   'posts/1'
 );
+echo $response->getBody();
 
-//var_dump($response);
+$response = $client->get(
+  'posts/2'
+);
+echo $response->getBody();
+
+$response = $client->get(
+  'comments/1'
+);
+echo $response->getBody();
+
+//Gets the IP adress
+$response = $client->get(
+  'http://httpbin.org/ip'
+);
 echo $response->getBody();
